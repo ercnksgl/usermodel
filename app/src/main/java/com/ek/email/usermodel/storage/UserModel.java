@@ -14,11 +14,11 @@ public class UserModel {
         this.userToken = userToken;
     }
 
-    public String getFullName() {
+    public String getName() {
         return fullName;
     }
 
-    public void setFullName(String fullName) {
+    public void setName(String fullName) {
         this.fullName = fullName;
     }
 

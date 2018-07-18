@@ -4,34 +4,31 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
 
-import com.ek.email.usermodel.Application.App;
-import com.ek.email.usermodel.MainActivity;
 import com.ek.email.usermodel.Utils.FinalString;
 import com.google.gson.Gson;
 
-import java.util.List;
 
 /**
  * Kullannıcı modelinin cihaza kaydedilmesini kontrol eder.
  */
 public class UserPreferences {
 
-    private static UserPreferences instance = new UserPreferences();
+    //private static UserPreferences instance = new UserPreferences();
     private static final String SP_LOG = "User Preference";
     private SharedPreferences sharedPreferences;
-    private static String userKey;
 
-    private UserPreferences() {
-        sharedPreferences = App.getInstance().getApplicationContext().getSharedPreferences(userKey, Context.MODE_PRIVATE);
-        Log.d(SP_LOG, "User Model Created ");
+
+    public UserPreferences(Context context) {
+        sharedPreferences = context.getSharedPreferences(FinalString.USER_KEY, Context.MODE_PRIVATE);
+
     }
 
     public static UserPreferences getInstance() {
-        userKey = "user_key";
-        return instance;
+
+        return null;
     }
 
-    public void setUserPreference(UserModel userModel) {//id,token,phone,confirmcode,interest vb.
+    public void setUserPreference(UserModel userModel) {
 
         try {
             Log.i(SP_LOG, "user:" + userModel.toString());
@@ -66,14 +63,7 @@ public class UserPreferences {
     }
 
 
-
-
-
-
 }
-
-
-
 
 
 // // feedback bir kere verilmesi icin
